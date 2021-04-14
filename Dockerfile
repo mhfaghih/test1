@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.8.9-alpine3.13
 
 WORKDIR /home/app
 
@@ -7,6 +7,7 @@ ADD requirements.txt /home/app
 RUN pip install --no-cache-dir -r requirements.txt
 
 ADD . /home/app
-CMD flask run --host 172.17.0.2
+ENTRYPOINT ["sh" ,"./gunicorn_starter.sh"]
+#CMD flask run --host 172.17.0.2
 
-EXPOSE 5000
+EXPOSE 8000
