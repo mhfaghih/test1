@@ -7,7 +7,6 @@ ADD requirements.txt /home/app
 RUN pip install --no-cache-dir -r requirements.txt
 
 ADD . /home/app
-ENTRYPOINT ["sh" ,"./gunicorn_starter.sh"]
-#CMD flask run --host 172.17.0.2
+CMD flask run --host 172.17.0.2
 
 EXPOSE 8000
